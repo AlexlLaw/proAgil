@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using ProAgil.API3.Data;
-using ProAgil.API3.model;
+using ProAgil.Repository;
+using ProAgil.Domain;
 
 namespace ProAgil.API3.Controllers
 {
@@ -14,9 +14,9 @@ namespace ProAgil.API3.Controllers
     public class WeatherForecastController : ControllerBase
     {
         private readonly ILogger<WeatherForecastController> _logger;
-        private readonly DataContext _context;
+        private readonly ProAgilContext _context;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger,  DataContext context)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger,  ProAgilContext context)
         {
             _logger = logger;
             _context = context;
@@ -41,7 +41,7 @@ namespace ProAgil.API3.Controllers
        public async Task<IActionResult> Get(int id)
        {
           try {
-             var results = await _context.Eventos.FirstOrDefaultAsync(x => x.EventoId == id);;
+             var results = await _context.Eventos.FirstOrDefaultAsync(x => x.Id == id);;
 
              return Ok(results);
           }
