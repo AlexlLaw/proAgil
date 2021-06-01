@@ -10,14 +10,10 @@ namespace ProAgil.Repository
         void Delete<T>(T entity) where T: class;
 
         Task<bool> SaveChangesAsync();  
-
-        Task<Evento[]> getAllEventoAsyncByTema(string tema, bool includesPalestrantes);
         Task<Evento[]> getAllEventoAsync(bool includesPalestrantes);
-        Task<Evento> getAllEventoAsyncById(int EventoId, bool includesPalestrantes);
-        Task<Evento[]> getAllPalestranteAsyncByName(string tema, bool includesPalestrantes);
-        Task<Evento[]> getAllPalestranteAsync(int PalestranteId, bool includesPalestrantes);
-
-
-
+        Task<Evento[]> getAllEventoAsyncByTema(string tema, bool includesPalestrantes);
+        Task<Evento> getEventoAsyncById(int EventoId, bool includesPalestrantes);
+        Task<Palestrante> getPalestranteAsync(int PalestranteId, bool includesEventos);
+        Task<Palestrante[]> getAllPalestranteAsyncByName(string name, bool includesEventos);
     }
 }
