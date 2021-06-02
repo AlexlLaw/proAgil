@@ -12,7 +12,7 @@ namespace ProAgil.Domain
         public int QtdPessoas { get; set; }
         public string ImagemUrl { get; set; }
         public string Telefone { get; set; }
-        public int Email { get; set; }       
+        public string Email { get; set; }       
         public string Lote { get; set; }
         public List<Lote> Lotes { get; set; }
         public List<RedeSocial> RedesSociais { get; set; }
